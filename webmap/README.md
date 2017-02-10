@@ -5,15 +5,23 @@ This mini-project written in Python3.6 generates a webmap with markers based on 
 ## Dependencies
 
 This mini-application is written in python 3.6. For this reason, you will need python 3.6 and a few other libraries to be installed. They are : 
+<br \>
+
+(1) (Python 3-6) [https://www.python.org/downloads/release/python-360/]
+<br \>
+(2) (Numpy) [http://www.numpy.org/]. Can be installed by typing : 
 
 ```
-(1) (Python 3-6) [https://www.python.org/downloads/release/python-360/]
-(2) (Numpy) [http://www.numpy.org/]. Can be installed by typing : 
-        
-        pip3 install numpy    
+pip3 install numpy    
+```
 
-(3) Pandas --- pip3 install pandas
-(4) folium --- pip3 install folium
+(3) Pandas 
+```
+pip3 install pandas
+```
+(4) folium 
+```
+pip3 install folium
 ```
 
 ## Usage
@@ -30,7 +38,7 @@ This project is really easy to use. You just have to follow these instructions :
 python3 webmap_creator.py
 ```
 
-(3) Specify the file you will be using as your input data (i.e. the file where the markers will be collected from). The file MUST be in a [CSV format] ("https://en.wikipedia.org/wiki/Comma-separated_values" ) and have (at least) the following collumns : 
+(3) Specify the file you will be using as your input data (i.e. the file where the markers will be collected from). The file MUST be in a [CSV format](https://en.wikipedia.org/wiki/Comma-separated_value ) and have (at least) the following collumns : 
 
 ```
 (a) NAME -- A string representing the name of the marker
