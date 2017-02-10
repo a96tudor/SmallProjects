@@ -2,7 +2,7 @@ import folium
 import pandas as pd
 
 map_center = [45.372, -121.697]
-in_file = "Volcanoes-USA.txt"
+in_file = input("Please specify the file were we collect the data from : ")
 out_file = "webmap.html"
 
 #initiating the map object
