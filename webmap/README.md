@@ -7,9 +7,9 @@ This mini-project written in Python3.6 generates a webmap with markers based on 
 This mini-application is written in python 3.6. For this reason, you will need python 3.6 and a few other libraries to be installed. They are : 
 <br \>
 
-(1) (Python 3-6) [https://www.python.org/downloads/release/python-360/]
+(1) (Python 3-6)[https://www.python.org/downloads/release/python-360/]
 <br \>
-(2) (Numpy) [http://www.numpy.org/]. Can be installed by typing : 
+(2) (Numpy)[http://www.numpy.org/]. Can be installed by typing : 
 
 ```
 pip3 install numpy    
