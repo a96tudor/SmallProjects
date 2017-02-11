@@ -44,7 +44,8 @@ python3 webmap_creator.py
 (a) NAME -- A string representing the name of the marker
 (b) LAT  -- A floating point number storing the latitude of the marker
 (c) LON  -- A floating point number storing the longitude of the marker
-(d) ELEV -- An integer representing the elevation of the specific point on the map. This is used to colour the markers differently based on elevation.
+(d) ELEV -- An integer representing the elevation of the specific point on the map. This is used to colour 
+the markers differently based on elevation.
 ```
 
 An example of such a CSV file is Volcanoes_USA.txt. 
