@@ -1,6 +1,7 @@
 import folium
 import pandas as pd
 import math
+import numpy as np
 
 def get_percentile(l, p) :
     """
@@ -18,15 +19,21 @@ def get_percentile(l, p) :
 
     return cpy[poz]
 
-map_center = [45.372, -121.697]
 in_file = input("Please specify the file were we collect the data from : ")
 out_file = "webmap.html"
 
-#initiating the map object
-map = folium.Map(location= map_center, zoom_start = 4, tiles = 'Stamen Terrain')
-
 #read data from the file
 df = pd.read_csv(in_file)
+
+#setting the map center in the mean of LAT and LON
+map_center = [
+    np.mean(df["LAT"]),
+    np.mean(df["LON"])
+]
+
+#initiating the map object
+map = folium.Map(location= map_center, zoom_start = 6, tiles = 'Stamen Terrain')
+
 
 #getting the limits for elevation intervals
 limit1 = get_percentile(df["ELEV"], .33)
