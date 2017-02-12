@@ -50,7 +50,7 @@ colours = [
 
 for colour, name, lat, lon in zip(colours, df["NAME"], df["LAT"], df["LON"]):
     #add a marker for every volcano
-    map.simple_marker(location = [lat, lon], popup=name, marker_color=colour)
+    map.add_child(folium.Marker(location = [lat, lon], popup=name, icon = folium.Icon(color = colour, icon_color = colour)))
 
 #creating the HTML for the map
 map.save(out_file)
