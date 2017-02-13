@@ -68,4 +68,4 @@ An example of such a CSV file is Volcanoes_USA.txt.
 For the population map, it is pretty much the same thing. You only have to run "webmap-population.py" instead of "markers-webma.py". Here you don't have to specify any file, it would just take the data on its own from a json file. The output file in this case will be "population-map.html"
 
 ## Licence 
-This project is available under standard MIT licence. See [LICENSE](LICENSE.md) file for details.
+This project is available under standard MIT licence. See [LICENSE](https://github.com/a96tudor/SmallProjects/blob/master/LICENCE.md) file for details.
