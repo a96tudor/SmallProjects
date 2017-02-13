@@ -10,7 +10,7 @@ The only dependency this project has is [Python 3-6](https://www.python.org/down
 
 There are 2 parts of the application : 
 
-####  1. The setup part.
+###  1. The setup part.
 
     It is a command-line UI that collects the information from the user (such as what sites he/she wants blocked or what time intervalto be blocked).
 
@@ -22,7 +22,7 @@ There are 2 parts of the application :
         python3 setup.py
     ```
 
-####  2. The actual website blocker
+###  2. The actual website blocker
 
     It is an application that just runs in the background and blocks the websites from the configuration file.
     <br \>
@@ -38,7 +38,7 @@ There are 2 parts of the application :
     ```
         python3 website-blocker.py
     ```
-#### Important things: 
+### Important things: 
 
     1. Remember to **run this application as an administrator**
     <br \>
