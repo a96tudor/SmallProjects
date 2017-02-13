@@ -1,3 +1,8 @@
+"""
+   Setup application for the website blocker
+
+    MIT Standard Licence -- © Tudor Avram -- 13/02/17
+"""
 import platform
 from dateutil import parser as p
 from datetime import datetime as dt
