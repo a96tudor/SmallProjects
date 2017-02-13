@@ -1,6 +1,10 @@
+"""
+    Global webmap generator based on population data
+
+    MIT Standard Licence -- © Tudor Avram -- 13/02/17
+"""
+
 import folium
-import pandas as pd
-import numpy as np
 
 def main():
     # defining the colouring function

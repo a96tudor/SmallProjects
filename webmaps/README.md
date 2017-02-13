@@ -3,9 +3,9 @@
 Here are in fact 2 mini-projects, written in Python3 :
 
 (1)  markers webmap -- Generates a map, with markers on it. The markers are set based on a given input through a csv file
-<br\>
+<br \>
 Note: Currently only working for USA coordinates. Updates to follow
-<br\>
+<br \>
 (2)  world pupulation webmap -- Generates a world map, with countours for every country and different colours per country, based on
 population
 
@@ -35,11 +35,11 @@ pip3 install folium
 
 This project is really easy to use. You just have to follow these instructions : 
 
-<br\>
+<br \>
 
 For the makers map code you will need to : 
 
-<br\>
+<br \>
 
 (1) Donwload and unarchive the files <br \>
 
@@ -63,8 +63,9 @@ An example of such a CSV file is Volcanoes_USA.txt.
 
 (4) Once the program finished running, it will generate a [HTML] (https://ro.wikipedia.org/wiki/HyperText_Markup_Language) file that, when opened in the browser, will display the map. 
 
-<br\>
+<br \>
 
 For the population map, it is pretty much the same thing. You only have to run "webmap-population.py" instead of "markers-webma.py". Here you don't have to specify any file, it would just take the data on its own from a json file. The output file in this case will be "population-map.html"
 
-
+## Licence 
+This project is available under standard MIT licence. See [LICENSE](LICENSE.md) file for details.

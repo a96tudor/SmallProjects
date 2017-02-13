@@ -1,3 +1,8 @@
+"""
+    US Webmap with markers based on data from a given CSV file
+
+    MIT Standard Licence -- © Tudor Avram -- 13/02/17
+"""
 import folium
 import pandas as pd
 import numpy as np
@@ -82,7 +87,7 @@ def add_makers(map, names, lat, lon, colours):
 def main():
     """
         The main function of the program. Connects all the other functions
-    :return:
+    :return: -
     """
     #reading input
     in_file = read_input()
