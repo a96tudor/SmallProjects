@@ -64,23 +64,25 @@ class Database:
 
         return condition
 
-    def fetch(self, limit=-1, conds=dict()):
+    def fetch(self, limit=-1, conds=None):
         """
             Method that reads all the entries from the table
         :param limit:       How many elements to fetch from the table
 
                 Default: -1 = no limit (i.e. fetching all of them)
-        :param condition:   The conditions used when we run the query
+        :param conds:   The conditions used when we run the query
                     It is a dictionary with the format :
                         <column_name> : <condition>
 
-                Default: {} = no conditions
+                Default: None = no conditions
 
         :return:    The entries from the table, as a list of tuples
         """
 
-
-        condition = self._get_query_format(conds)
+        if (not conds is None):
+            condition = self._get_query_format(conds)
+        else:
+            condition = ""
 
         #setting up the query
         query = "SELECT * FROM book" + condition
