@@ -8,6 +8,7 @@ The user can: <br />
 * Update an entry
 * Delete an entry
 * Add entry
+
 ## Dependencies
 
 The only dependency this project has is [Python 3-6](https://www.python.org/downloads/release/python-360/)
