@@ -1,13 +1,13 @@
 ## Synopsis
 
 This is a small GUI application that I wrote in order to get used to database management in Python
-<br />
+<br /> <br />
 The user can: <br />
-Markup : * View all the entries from the database
-         * Select a sub-set of entries from the database
-         * Update an entry
-         * Delete an entry
-         * Add entry
+* View all the entries from the database
+* Select a sub-set of entries from the database
+* Update an entry
+* Delete an entry
+* Add entry
 ## Dependencies
 
 The only dependency this project has is [Python 3-6](https://www.python.org/downloads/release/python-360/)
