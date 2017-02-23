@@ -38,6 +38,32 @@ class Database:
         #closing the connection
         con.close()
 
+    def _get_query_format(self, d, keyword="AND", pre_word=" WHERE "):
+        """
+            Returns the query format from an dictionary of specs, d
+        :param d:       A dictionary, holding specs, in the format :
+                    <column_name> : <constraint>
+        :param keyword:     The work that is used to connect the conditions
+                    (i.e. AND or OR)
+        :param pre_word:    The keyword that precedes the sequence of
+                    equalities
+
+        :return:        The query-format string
+        """
+        l_conds=list()
+        #Setting up the conditions
+        for key in d:
+            if (key!="year" and key!="id"):
+                l_conds.append(key + "='" + str(d[key]) + "'")
+            else:
+                l_conds.append(key + "=" + str(d[key]))
+        condition=(" " + keyword + " ").join(l_conds)
+
+        if condition!="":
+            condition = pre_word + condition
+
+        return condition
+
     def fetch(self, limit=-1, conds=dict()):
         """
             Method that reads all the entries from the table
@@ -53,13 +79,8 @@ class Database:
         :return:    The entries from the table, as a list of tuples
         """
 
-        l_conds=list()
-        #Setting up the conditions
-        for col in conds:
-            l_conds.append(col + "=" + conds[col])
-        condition=" AND ".join(l_conds)
-        if condition!="":
-            condition = " WHERE " + condition
+
+        condition = self._get_query_format(conds)
 
         #setting up the query
         query = "SELECT * FROM book" + condition
@@ -72,7 +93,7 @@ class Database:
 
         #running the query
         cur.execute(query)
-        results = cur.fetchall()
+        results = list(set(cur.fetchall()))
 
         #closing the connection
         con.close()
@@ -122,6 +143,68 @@ class Database:
             con.commit()
         except Exception:
             #it failed
+            return False
+        finally:
+            con.close()
+
+        return True
+
+    def delete(self, cond):
+        """
+            Deletes the entries with the given specs
+        :param cond:        The required specifications,
+                in the format of a dictionary:
+
+                    <column_name> : <constraint>
+
+        :return:        True if successful,
+                    false otherwise
+        """
+
+        condition = self._get_query_format(cond)
+
+        #setting up the query
+
+        query = "DELETE FROM book" + condition
+
+
+        try:
+            con = sql.connect(self._dbName)
+            cur = con.cursor()
+
+            cur.execute(query)
+
+            con.commit()
+        except Exception:
+            return False
+        finally:
+            con.close()
+
+        return True
+
+    def update(self, id, new_data):
+        """
+        :param id:         The id of the element we want to update, as a dictionary
+        :param new_data:   The new data for our element. Has to be a dictionary in the format:
+                            <column_name> : <value>
+
+        :return:            - True, if the update was successful
+                            - False, otherwise
+        """
+
+        #setting up the query
+        cond = self._get_query_format(id)
+        set = self._get_query_format(new_data, pre_word=" SET ")
+
+        query = "UPDATE book" + set + cond
+
+        try:
+            #setting up the connection
+            con = sql.connect(self._dbName)
+            cur = con.cursor()
+            cur.execute(query)
+            con.commit()
+        except Exception:
             return False
         finally:
             con.close()
