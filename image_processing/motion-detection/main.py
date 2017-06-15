@@ -35,7 +35,7 @@ def start_capture(stream, exit_key='q'):
     :return:                -
     """
 
-    reference_frame = Noner
+    reference_frame = None
 
     while(True):
         _, current_frame = stream.read()
