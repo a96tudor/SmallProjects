@@ -1,6 +1,7 @@
 bookshop/bookshop.db
 image_processing/basics
-image_processing/face_detection/Files/*.jpg
+image_processing/face_detection/Files/news.jpg
+image_processing/face_detection/Files/photo.jpg
 website-blocker/config.cnf
 
 
