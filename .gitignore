@@ -4,4 +4,4 @@ image_processing/face-detection/Files/news.jpg
 image_processing/face-detection/Files/photo.jpg
 website-blocker/config.cnf
 image_processing/motion-detection/log.csv
-
+image_processing/motion-detection/log-graph.html
