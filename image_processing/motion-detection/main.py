@@ -1,6 +1,35 @@
 import cv2, time
 from datetime import datetime as dt
 from pandas import DataFrame as DF
+from bokeh.plotting import figure, output_file, show
+
+
+def plot_log(df):
+    """
+        Function that takes the log in csv format, reads it and generates an HTML file with
+    a timescale plot from it
+
+    :param df:      The dataframe corresponding to the data we'll use
+    :return:    -
+    """
+
+    p = figure(x_axis_type='datetime',
+               height=100, width=500,
+               responsive=True,
+               title='Motion Graph')
+
+    p.yaxis.minor_tick_line_color = None
+    p.ygrid[0].ticker.desired_num_ticks = 1
+
+    q = p.quad(left=df["Start"], right=df["End"],
+               bottom=0, top=1,
+               color="green")
+
+    output_file("log_graph.html")
+
+    show(p)
+
+
 
 def write_log(entries):
     """
@@ -10,7 +39,7 @@ def write_log(entries):
 
                                     "Start":    <start_time> (datetime object)
                                     "End":      <end_time>   (datetime object)
-    :return:            -
+    :return:            the dataframe corresponding to the data that was logged
     """
     df = DF(columns=["Start", "End"])
 
@@ -18,6 +47,9 @@ def write_log(entries):
         df = df.append(entry, ignore_index=True)
 
     df.to_csv("log.csv")
+
+    return df
+
 
 def process_frame(reference_frame, current_frame, color_frame):
     """
@@ -47,6 +79,7 @@ def process_frame(reference_frame, current_frame, color_frame):
         cv2.rectangle(color_frame, (x, y), (x + w, y + h), (0, 255, 0), 3)
 
     return color_frame, status
+
 
 def start_capture(stream, exit_key='q'):
     """
@@ -103,13 +136,15 @@ def start_capture(stream, exit_key='q'):
 
     return entries
 
+
 def main():
     video = cv2.VideoCapture(0)
     time.sleep(2)
     entries = start_capture(video)
     video.release()
     cv2.destroyAllWindows()
-    write_log(entries)
+    df = write_log(entries)
+    plot_log(df)
 
 if __name__ == "__main__":
     main()
